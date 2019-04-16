@@ -1,9 +1,9 @@
 import pytest
 
-from imagewarrior import Gravity
-from imagewarrior import Ext
-from imagewarrior import Resize
-from imagewarrior import url
+from imagewarrior.imagewarrior import Resize
+from imagewarrior.imagewarrior import Gravity
+from imagewarrior.imagewarrior import Ext
+from imagewarrior.imagewarrior import url
 
 
 @pytest.mark.parametrize('params, exp_url', [

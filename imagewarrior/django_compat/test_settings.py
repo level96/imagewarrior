@@ -5,7 +5,7 @@ DATABASES = {
     }
 }
 INSTALLED_APPS = [
-    "django_compat"
+    "imagewarrior.django_compat"
 ]
 MIDDLEWARE = []
 ROOT_URLCONF = "tests.urls"
@@ -18,7 +18,7 @@ TEMPLATES = [
                 ('django.template.loaders.cached.Loader', []),
             ],
             'context_processors': [
-                'django_compat.context_processors.imagewarrior'
+                'imagewarrior.django_compat.context_processors.imagewarrior'
             ],
         },
     },

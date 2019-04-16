@@ -1,6 +1,6 @@
-from imagewarrior import Gravity
-from imagewarrior import Resize
-from imagewarrior import Ext
+from imagewarrior.imagewarrior import Gravity
+from imagewarrior.imagewarrior import Resize
+from imagewarrior.imagewarrior import Ext
 
 
 def imagewarrior(request):

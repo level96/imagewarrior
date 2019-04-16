@@ -1,8 +1,8 @@
 from django import template
 from django.utils.safestring import mark_safe
 
-from imagewarrior import url
-from imagewarrior import Resize
+from imagewarrior.imagewarrior import Resize
+from imagewarrior.imagewarrior import url
 
 register = template.Library()
 

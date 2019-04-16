@@ -1,7 +1,9 @@
 import pytest
 
-from django.template import Template, Context
-from django_compat.context_processors import imagewarrior
+from django.template import Template
+from django.template import Context
+
+from imagewarrior.django_compat.context_processors import imagewarrior
 
 
 @pytest.mark.parametrize('tpl_tag, exp_url', [
