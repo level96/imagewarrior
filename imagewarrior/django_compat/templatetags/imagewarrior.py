@@ -1,3 +1,5 @@
+import re
+
 from django import template
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -8,6 +10,7 @@ from imagewarrior.imagewarrior import url
 register = template.Library()
 
 SRC_ATTRS = {'gravity', 'gravity_focus', 'resize_type', 'quality', 'blur', 'sharpen', 'ext', 'dpr', 'background'}
+REG_SCHEME = re.compile('^http(s)?://')
 
 
 @register.simple_tag
@@ -16,14 +19,14 @@ def image_src(img, dim, gravity=None, gravity_focus=None, resize_type=Resize.FIL
     width, height = dim.split('x')
     gfoc = gravity_focus.split(',') if gravity_focus else None
     bg = background.split(',') if background else None
-    full_url = '{}{}'.format(settings.BASE_URL, img)
+
+    full_url = '{}{}'.format(REG_SCHEME.sub('', settings.BASE_URL), img)
     return url(full_url, width=width, height=height, gravity=gravity, gravity_focus=gfoc, resize_type=resize_type,
                quality=quality, blur=blur, sharpen=sharpen, ext=ext, dpr=dpr, background=bg)
 
 
 @register.simple_tag
 def image(img, dim, lazy=True, **kwargs):
-
     src_kwargs = {}
     img_attrs = {}
     for k, v in kwargs.items():

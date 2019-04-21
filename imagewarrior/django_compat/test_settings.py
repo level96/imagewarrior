@@ -1,4 +1,5 @@
 SECRET_KEY = '123'
+BASE_URL = 'https://my-hp.de'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
