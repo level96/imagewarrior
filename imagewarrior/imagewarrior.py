@@ -1,6 +1,6 @@
 from enum import Enum
 
-BASE_URL = 'https://leo.imagewarrior.de'
+BASE_URL = 'https://leo.image-warrior.de'
 
 
 class Gravity(Enum):
