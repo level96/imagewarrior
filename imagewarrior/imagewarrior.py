@@ -1,6 +1,6 @@
 from enum import Enum
 
-base_url = 'http://localhost:8080'
+base_url = 'https://leo.imagewarrior.de'
 
 
 class Gravity(Enum):
@@ -45,7 +45,7 @@ def url(url, width, height, resize=True, resize_type=Resize.FIT, enlarge=0, dpr=
 
     return '{base_url}/insecure{rs}{g}{dpr}{q}{bg}{bl}{sh}/plain/{url}{ext}'.format(
         base_url=base_url,
-        url=url,
+        url=url[1:] if url[0] == '/' else url,
         g=g,
         rs=rs if resize else s,
         bl='/bl:{}'.format(blur) if blur and blur > 0 else '',
