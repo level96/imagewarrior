@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
 
@@ -13,7 +13,7 @@ setup(
     url='https://developer.imagewarrior.de/',
     author='ImageWarrior',
     author_email='hello@imagewarrior.de',
-    packages=['imagewarrior'],
+    packages=find_packages(),
     tests_require=[
         'enum34',
         'pytest',
@@ -32,7 +32,7 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet',
-        'Topic :: Multimedia :: Video',
+        'Topic :: Multimedia :: Image',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
