@@ -1,5 +1,6 @@
 SECRET_KEY = '123'
 BASE_URL = 'https://my-hp.de'
+BILDERFEE_TOKEN = 'BF_TOKEN'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",

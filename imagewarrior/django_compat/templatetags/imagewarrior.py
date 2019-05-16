@@ -18,7 +18,8 @@ def image_src(img, dim, **kwargs):
 
     data = {
         'width': int(width),
-        'height': int(height)
+        'height': int(height),
+        'token': settings.BILDERFEE_TOKEN
     }
     full_url = '{}{}'.format(REG_SCHEME.sub('', settings.BASE_URL), img)
     data.update(**kwargs)
