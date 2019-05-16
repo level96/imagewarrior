@@ -9,7 +9,6 @@ from imagewarrior.imagewarrior import url
 register = template.Library()
 
 SRC_ATTRS = {'gravity', 'gravity_focus', 'resize_type', 'quality', 'blur', 'sharpen', 'ext', 'dpr', 'background'}
-REG_SCHEME = re.compile('^http(s)?://')
 
 
 @register.simple_tag
@@ -21,10 +20,9 @@ def image_src(img, dim, **kwargs):
         'height': int(height),
         'token': settings.BILDERFEE_TOKEN
     }
-    full_url = '{}{}'.format(REG_SCHEME.sub('', settings.BASE_URL), img)
     data.update(**kwargs)
 
-    return url(full_url, **data)
+    return url(img, **data)
 
 
 @register.simple_tag
