@@ -1,5 +1,4 @@
 from imagewarrior.imagewarrior import Gravity
-from imagewarrior.imagewarrior import Resize
 from imagewarrior.imagewarrior import Ext
 
 
@@ -15,11 +14,6 @@ def imagewarrior(request):
         'GRAVITY_NORTH_WEST': Gravity.NORTH_WEST,
         'GRAVITY_SOUTH_EAST': Gravity.SOUTH_EAST,
         'GRAVITY_SOUTH_WEST': Gravity.SOUTH_WEST,
-        'GRAVITY_FOCUS': Gravity.FOCUS,
-        # Resize
-        'RESIZE_FIT': Resize.FIT,
-        'RESIZE_FILL': Resize.FILL,
-        'RESIZE_CROP': Resize.CROP,
         # File Extension
         'EXT_JPEG': Ext.JPEG,
         'EXT_PNG': Ext.PNG,

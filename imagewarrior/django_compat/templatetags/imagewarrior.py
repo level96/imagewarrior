@@ -4,7 +4,6 @@ from django import template
 from django.utils.safestring import mark_safe
 from django.conf import settings
 
-from imagewarrior.imagewarrior import Resize
 from imagewarrior.imagewarrior import url
 
 register = template.Library()
@@ -14,15 +13,17 @@ REG_SCHEME = re.compile('^http(s)?://')
 
 
 @register.simple_tag
-def image_src(img, dim, gravity=None, gravity_focus=None, resize_type=Resize.FILL, quality=None, blur=None,
-              sharpen=None, ext=None, dpr=None, background=None):
+def image_src(img, dim, **kwargs):
     width, height = dim.split('x')
-    gfoc = gravity_focus.split(',') if gravity_focus else None
-    bg = background.split(',') if background else None
 
+    data = {
+        'width': int(width),
+        'height': int(height)
+    }
     full_url = '{}{}'.format(REG_SCHEME.sub('', settings.BASE_URL), img)
-    return url(full_url, width=width, height=height, gravity=gravity, gravity_focus=gfoc, resize_type=resize_type,
-               quality=quality, blur=blur, sharpen=sharpen, ext=ext, dpr=dpr, background=bg)
+    data.update(**kwargs)
+
+    return url(full_url, **data)
 
 
 @register.simple_tag
